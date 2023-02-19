@@ -1,0 +1,7 @@
+- id: add-ticket-number
+  name: Add ticket number
+  description: Extract ticket number from branch name and add to commit message
+  entry: add-ticket-number
+  language: node
+  verbose: true
+  stages: [prepare-commit-msg]
