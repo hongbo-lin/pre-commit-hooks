@@ -58,13 +58,13 @@ function updateCommitMsg(filePath, ticketNumber, pattern) {
         .trim()
         .split("\n")
         .map((line) => line.trimStart())
-        .filter((line) => !line.startsWith("#"));
+        .filter((line) => !line.startsWith("#"))
+        .join('\n').trim();
 
     if (cleanMessage.includes(ticketNumber)) {
         consoleInfo("Commit mesage already contains branch ticket number.");
         process.exit(0);
     } else {
-        consoleInfo("No ticket number");
         const messageWithTicket = replaceMessageByPattern(ticketNumber, commitMessage, pattern);
 
         try {
@@ -101,6 +101,7 @@ function addTicketNumber() {
         consoleWarn("All feature/bugfix branch name must include a jira ticket number.");
         consoleWarn("Did you miss-typed or forgot to include one?");
         consoleInfo('\nIf this is intentional, `SKIP=add-ticket-number git commit -m "foo"` to disable this hook.');
+        process.exit(1);
     }
 }
 
