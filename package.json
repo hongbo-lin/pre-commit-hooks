@@ -1,0 +1,26 @@
+{
+  "name": "pre-commit-hooks",
+  "version": "0.0.1",
+  "description": "Pre-commit hooks",
+  "main": "index.js",
+  "repository": "https://github.com/hongbo-lin/pre-commit-hooks.git",
+  "author": "hongbo-lin <linhongb@hawaii.edu>",
+  "license": "MIT",
+  "bin": {
+    "add-ticket-number": "bin/add-ticket-number.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "commander": "^10.0.0",
+    "picocolors": "^1.0.0"
+  },
+  "devDependencies": {
+    "husky": "^8.0.0"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "add-ticket-number": "node bin/add-ticket-number.js"
+  }
+}
